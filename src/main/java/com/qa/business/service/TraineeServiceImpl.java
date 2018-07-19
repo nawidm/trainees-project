@@ -14,29 +14,29 @@ public class TraineeServiceImpl implements TraineeService {
 	private TraineeRepo repo;
 
 	public String getAllTrainees() {
-		LOGGER.info("In AccountServiceImpl getAllAccounts ");
+		LOGGER.info("In TraineeServiceImpl getAllAccounts ");
 		return repo.getAllTrainees();
 	}
 
 	public String addTrainee(String trainee) {
-		LOGGER.info("In AccountsServiceImpl addAccount");
+		LOGGER.info("In TraineeServiceImpl addAccount");
 		return repo.createTrainee(trainee);
 	}
 
 	public String updateTrainee(Long id, String trainee) {
-		LOGGER.info("In AccountsServiceImpl updateAccount");
+		LOGGER.info("In TraineeServiceImpl updateAccount");
 		return repo.updateTrainee(id, trainee);
 	}
 
 	public String deleteTrainee(Long id) {
-		LOGGER.info("In AccountsServiceImpl deleteAccount");
+		LOGGER.info("In TraineeServiceImpl deleteAccount");
 		return repo.deleteTrainee(id);
 
 	}
 	
 
 	public void setRepo(TraineeRepo repo) {
-		LOGGER.info("In AccountsServiceImpl setRepo");
+		LOGGER.info("In TraineeServiceImpl setRepo");
 		this.repo = repo;
 	}
 

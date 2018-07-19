@@ -30,56 +30,56 @@ public class TraineeDBRepo implements TraineeRepo {
 	private JSONUtil util;
 
 	public String getAllTrainees() {
-		LOGGER.info("In AccountDBRepository getAllAccounts");
-		Query query = manager.createQuery("Select a FROM Account a");
-		Collection<Trainee> accounts = (Collection<Trainee>) query.getResultList();
-		return util.getJSONForObject(accounts);
+		LOGGER.info("In TraineeDBRepo getAllTrainees");
+		Query query = manager.createQuery("Select a FROM Trainee a");
+		Collection<Trainee> trainee = (Collection<Trainee>) query.getResultList();
+		return util.getJSONForObject(trainee);
 	}
 
 	@Transactional(REQUIRED)
 	public String createTrainee(String trainee) {
-		LOGGER.info("In AccountDBRepository createAccount");
+		LOGGER.info("In TraineeDBRepo createTrainee");
 		Trainee aTrainee = util.getObjectForJSON(trainee, Trainee.class);
 		manager.persist(aTrainee);
-		return "{\"message\": \"account has been sucessfully added\"}";
+		return "{\"message\": \"trainee has been sucessfully added\"}";
 	}
 
 	@Transactional(REQUIRED)
 	public String updateTrainee(Long id, String traineeToUpdate) {
-		LOGGER.info("In AccountDBRepository updateAccount");
+		LOGGER.info("In TraineeDBRepo updateTrainee");
 		Trainee updatedTrainee = util.getObjectForJSON(traineeToUpdate, Trainee.class);
 		Trainee traineeFromDB = findTrainee(id);
 		if (traineeToUpdate != null) {
-			LOGGER.info("Account passed is not null");
+			LOGGER.info("Trainee passed is not null");
 			traineeFromDB = updatedTrainee;
 			traineeFromDB.setId(id);
 			manager.merge(traineeFromDB);		
-			return "{\"message\": \"account sucessfully updated\"}";
+			return "{\"message\": \"trainee sucessfully updated\"}";
 		} else {
-			LOGGER.error("Account passed is null");
-			return "{\"message\": \"account not updated\"}";
+			LOGGER.error("Trainee passed is null");
+			return "{\"message\": \"trainee not updated\"}";
 		}
 
 	}
 
 	@Transactional(REQUIRED)
 	public String deleteTrainee(Long id) {
-		LOGGER.info("In AccountDBRepository deleteAccount");
+		LOGGER.info("In TraineeDBRepo deleteTrainee");
 		Trainee traineeInDB = findTrainee(id);
 		if (traineeInDB != null) {
-			LOGGER.info("Account with given id exists in DB");
+			LOGGER.info("Trainee with given id exists in DB");
 			manager.remove(traineeInDB);
 		}
-		return "{\"message\": \"account sucessfully deleted\"}";
+		return "{\"message\": \"Trainee sucessfully deleted\"}";
 	}
 
 	private Trainee findTrainee(Long id) {
-		LOGGER.info("In AccountDBRepository findAccount");
+		LOGGER.info("In TraineeDBRepo findTrainee");
 		return manager.find(Trainee.class, id);
 	}
 
 	public void setManager(EntityManager manager) {
-		LOGGER.info("In AccountDBRepository setManager");
+		LOGGER.info("In TraineeDBRepo setManager");
 		this.manager = manager;
 	}
 
