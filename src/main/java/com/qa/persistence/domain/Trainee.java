@@ -23,7 +23,7 @@ public class Trainee {
 	private String firstName;
 	@Pattern(regexp="^[a-zA-Z]+$")
 	private String surName;
-	@JoinColumn(name = "account_id")
+	@JoinColumn(name = "trainee_id")
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Subject> subjects;
 
