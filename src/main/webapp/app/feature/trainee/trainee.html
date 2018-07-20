@@ -3,7 +3,7 @@
     <div class="panel-body">
 
             <h3><span>Trainees table</span></h3>
-            <table class="table">
+            <table ng-hide="traineeCtrl.isHidden" class="table">
                 <tr>
                     <th>First Name</th>
                     <th>Surname</th>
@@ -13,5 +13,6 @@
                     <td>{{trainee.surName}}</td>
                 </tr>
             </table>
+        <button type="button" class="btn btn-primary" ng-click="traineeCtrl.hideTable()">Hide</button>
     </div>
 </div>

@@ -4,7 +4,7 @@
         
     	var vm = this;
 
-        vm.isHidden = true;
+        vm.isHidden = false;
 
         vm.hideTable = function()
         {
