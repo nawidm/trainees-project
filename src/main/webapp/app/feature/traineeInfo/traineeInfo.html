@@ -1,0 +1,14 @@
+<div class="panel panel-default" ng-controller="traineeController as traineeCtrl">
+    <h2>{{traineeCtrl.selectTrainee.firstName}} {{traineeCtrl.selectTrainee.surName}}</h2>
+    <table class="table">
+        <tr>
+            <th>Subject</th>
+            <th>Score</th>
+        </tr>
+
+        <tr ng-repeat="subject in traineeCtrl.selectTrainee.subjects">
+            <td>{{subject.subjectName}}</td>
+            <td>{{subject.score}}</td>
+        </tr>
+    </table>
+</div>

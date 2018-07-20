@@ -1,0 +1,17 @@
+<div class="panel panel-default" ng-controller="traineeController as traineeCtrl">
+    <div class="panel-heading">Trainee page</div>
+    <div class="panel-body">
+
+            <h3><span>Trainees table</span></h3>
+            <table class="table">
+                <tr>
+                    <th>First Name</th>
+                    <th>Surname</th>
+                </tr>
+                <tr ng-click="traineeCtrl.handleClick(trainee)" ng-repeat="trainee in traineeCtrl.trainees">
+                    <td>{{trainee.firstName}}</td>
+                    <td>{{trainee.surName}}</td>
+                </tr>
+            </table>
+    </div>
+</div>
